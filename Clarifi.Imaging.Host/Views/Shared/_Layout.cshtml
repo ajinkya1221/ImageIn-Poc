@@ -1,0 +1,23 @@
+﻿@using System.Web.Optimization
+
+@{
+    var PageTitle = ViewBag.Title ?? @HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clarifi - @PageTitle</title>
+    @Styles.Render("~/Content/themes/base/media/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/frameworks/lib")
+</head>
+<body>
+    <div class="container">
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

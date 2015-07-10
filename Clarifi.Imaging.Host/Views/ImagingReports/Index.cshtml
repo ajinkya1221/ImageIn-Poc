@@ -1,0 +1,46 @@
+﻿@model Clarifi.Imaging.Host.Models.ReportSummary
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<script id="entry-template" type="text/x-handlebars-template">
+    <div class="entry">
+        <h1>Image Mapping</h1>
+        <h2>Report</h2>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#CatCompleted" aria-controls="CatCompleted" role="tab" data-toggle="pill">Categories Completed
+                </a>
+            </li>
+            <li role="presentation" class="">
+                <a href="#UserPerformance" aria-controls="UserPerformance" role="tab" data-toggle="tab">User Performance
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="CatCompleted">Categories completed tab</div>
+            <div role="tabpanel" class="tab-pane" id="UserPerformance">User Performance tab</div>
+        </div>
+    </div>
+</script>
+
+@section scripts
+{
+    <script type="text/javascript">
+        var ImageReportView = ImageReportView || {};
+        ImageReportView.initialData = @Html.Raw(ViewBag.InitialData)
+        $(function () {
+            var rawTmpl = $('#entry-template').html();
+            var template = Handlebars.compile(rawTmpl);
+            var placeHolder = $(".container");
+            var context = { "title": "First Post", "body": "You can't stop me now!" };
+            var html = template(context);
+            placeHolder.append(html);
+        });
+    </script>
+}

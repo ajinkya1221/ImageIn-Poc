@@ -1,0 +1,123 @@
+﻿.gallery-box
+{
+    padding: 15px;
+    border: 5px solid rgb(213, 193, 164);
+}
+
+.button-parent
+{
+    display: block;
+    padding: 10px;
+}
+
+.content-wrapper-div
+{
+    width: 100%;
+    height: 300px;
+    border: 2px solid rgb(94, 175, 193);
+    margin: 10px 0px;
+}
+
+.img-wrapper-div
+{
+    width: 100%;
+    height: 250px;
+}
+
+.img-gallery
+{
+    width: 100%;
+    height: 100%;
+}
+
+.details-wrapper-div
+{
+    width: 100%;
+    height: 46px;
+}
+
+.span-title
+{
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.check-box
+{
+    margin: 10px !important;
+    height: 20px;
+    width: 20px;
+}
+
+.padding20
+{
+    padding: 20px;
+}
+
+
+
+
+
+/* Image layover code*/
+.imgHolder{
+    position:relative;
+    width:273px;
+    overflow:hidden;
+    cursor:pointer;
+}
+.imgHolder .img{
+    float:left;
+    width:100%;
+}
+.imgHolder .overlay{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0.7;  
+    z-index:9;
+    background-color:#000;
+    border: solid 2px red;
+    transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -webkit-transition: opacity 0.2s linear;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*.imgHolder:hover .overlay{
+    opacity:0.7;
+    border-color:red;
+}*/
+.imgHolder .addMoreBtn{
+    display:none;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background:url('https://cdn4.iconfinder.com/data/icons/keynote-and-powerpoint-icons/256/Plus-48.png') no-repeat center center rgba(0,0,0,0.7);
+    z-index:10;
+}
+
+.imgHolder.second:hover .addMoreBtn{
+    display:block;
+}
+
+
+
+.imgHolder.hoverOverlay{
+   background:#000;    
+}
+.imgHolder.hoverOverlay img{
+   opacity:0.2;
+}
+.imgHolder.hoverOverlay:hover .addMoreBtn{
+    display:block;
+}
+
+
+
+
