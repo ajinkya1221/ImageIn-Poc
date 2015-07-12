@@ -13,18 +13,75 @@
         <h2>Report</h2>
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
-                <a href="#CatCompleted" aria-controls="CatCompleted" role="tab" data-toggle="pill">Categories Completed
+                <a href="#CatCompleted" aria-controls="CatCompleted" role="tab" data-toggle="pill">
+                    Categories Completed
                 </a>
             </li>
             <li role="presentation" class="">
-                <a href="#UserPerformance" aria-controls="UserPerformance" role="tab" data-toggle="tab">User Performance
+                <a href="#UserPerformance" aria-controls="UserPerformance" role="tab" data-toggle="tab">
+                    User Performance
                 </a>
             </li>
         </ul>
 
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="CatCompleted">Categories completed tab</div>
-            <div role="tabpanel" class="tab-pane" id="UserPerformance">User Performance tab</div>
+            <div role="tabpanel" class="tab-pane active" id="CatCompleted">
+
+                <br />
+
+                <input type="text" class="jsCatCompleted" />
+
+                <br />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Category</th>
+                            <th>Progress</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#foreach CategoryReports}}
+                        <tr>
+                            <td>{{this.Id}}</td>
+                            <td>{{this.Name}}</td>
+                            <td>{{this.TotalImages}}/{{this.ProcessedImages}}</td>
+                            <td>{{this.LastUpdatedOn}}</td>
+                            <td><button type="button">Start Reveiw</button></td>
+                        </tr>
+                        {{/foreach}}
+                    </tbody>
+                </table>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="UserPerformance">
+                <br />
+                <input type="text" class="jsUserReport" />
+                <br />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Category</th>
+                            <th>Progress</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#foreach UserReports}}
+                        <tr>
+                            <td>{{this.Id}}</td>
+                            <td>{{this.Name}}</td>
+                            <td>{{this.TotalImages}}/{{this.ProcessedImages}}</td>
+                            <td>{{this.LastUpdatedOn}}</td>
+                            <td><button type="button">Start Reveiw</button></td>
+                        </tr>
+                        {{/foreach}}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </script>
@@ -37,10 +94,24 @@
         $(function () {
             var rawTmpl = $('#entry-template').html();
             var template = Handlebars.compile(rawTmpl);
+
             var placeHolder = $(".container");
-            var context = { "title": "First Post", "body": "You can't stop me now!" };
-            var html = template(context);
+            var obj = ImageReportView.initialData;
+            var html = template(obj);
             placeHolder.append(html);
+            var categories = [];
+
+            $.each(ImageReportView.initialData.CategoryReports, function(index, val) {
+                categories.push(val.Name);
+            });
+
+            $(".jsCatCompleted").autocomplete({
+                source: categories,
+                select: function (event, ui) {
+                    console.log(event);
+                    console.log(ui);
+                }
+            });
         });
     </script>
 }

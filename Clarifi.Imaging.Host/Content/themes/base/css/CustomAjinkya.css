@@ -1,1 +1,23 @@
-﻿
+﻿.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    background-color: gray;
+    color: white;    
+}
+
+.nav-tabs {
+    border-bottom: 2px solid gray;
+}
+
+body .ui-autocomplete {
+    background: gainsboro;
+    color: black;
+}
+
+body .ui-autocomplete .ui-menu-item .ui-corner-all {
+    
+}
+
+body .ui-autocomplete .ui-menu-item .ui-state-focus {
+    background: lightblue;
+}

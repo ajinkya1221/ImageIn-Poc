@@ -11,7 +11,10 @@ namespace Clarifi.Imaging.Host
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery*"));
+
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            //            "~/Scripts/jquery-ui*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -23,7 +26,9 @@ namespace Clarifi.Imaging.Host
             bundles.Add(new StyleBundle("~/Content/themes/base/media/css").Include(
                         "~/Content/themes/base/css/bootstrap-theme.css",
                         "~/Content/themes/base/css/bootstrap.css",
-                        "~/Content/themes/base/css/Custom.css"));
+                        "~/Content/themes/base/css/Custom.css",
+                        "~/Content/themes/base/css/CustomAjinkya.css"
+                        ));
 
             BundleTable.EnableOptimizations = true;
         }
